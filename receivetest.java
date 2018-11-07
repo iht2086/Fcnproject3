@@ -88,7 +88,7 @@ public class receivetest extends Thread{
 				DatagramSocket ds = new DatagramSocket();
 				String to_send = Long.toString(expected_no);
 				byte[] b = to_send.getBytes();
-				DatagramPacket dp = new DatagramPacket(b, b.length, InetAddress.getByName("129.21.22.196"),9000);
+				DatagramPacket dp = new DatagramPacket(b, b.length, InetAddress.getByName("129.21.34.80"),8586);
 				ds.send(dp);
 				o.notify();
 			}
@@ -98,31 +98,6 @@ public class receivetest extends Thread{
 		}
 		}
 	}
-    }
-/*
-
-    public void run(){
-
-	try{
-            DatagramSocket ds = new DatagramSocket(8585);
-             byte[] b = new byte[10000];
-                    DatagramPacket dp = new DatagramPacket(b,b.length);
-
-	    while(true){
-//               	byte[] b = new byte[1024];
-  //                  DatagramPacket dp = new DatagramPacket(b,b.length);
-                    ds.receive(dp);
-                    byte[] data = dp.getData();
-                    ByteArrayInputStream in = new ByteArrayInputStream(data);
-                    ObjectInputStream is = new ObjectInputStream(in);
-                    Packet p = (Packet)is.readObject();
-                    System.out.println(p.sequence_number+ " "+new String(p.data) );
-	    }
-
-        }catch(Exception e){
-            System.out.println("class not found "+e.getMessage());
-        }
-
-    }*/
+ }
 }
 
